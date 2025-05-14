@@ -10,30 +10,13 @@ const siteData = {
 			},
 			subcategories: [
 				{
-					name: "Apps",
+					name: "Mods",
 					items: [
 						{
 							title: "Spotify Premium",
 							description: "Spotify with Premium Unlocked ",
 							image: "https://primordialradio.com/wp-content/uploads/2024/04/Link_Image_Spotify.jpg",
 							link: "https://github.com/soudblox/nichdant-revanced/releases/download/1/spotify-revanced-v9.0.42.529-all.apk"
-						}
-					]
-				},
-				{
-					name: "Mods",
-					items: [
-						{
-							title: "YouTube Revanced",
-							description: "mod youtube ga ada iklan",
-							image: "/api/placeholder/400/320",
-							link: "#vanced"
-						},
-						{
-							title: "Spotify Revanced",
-							description: "mod spotify ga ada iklan",
-							image: "/api/placeholder/400/320",
-							link: "#magisk"
 						}
 					]
 				}
