@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nichdant - Hand-picked tools & recommendations</title>
+	<link rel="stylesheet" href="styles.css">
+	<!-- Font Awesome - only load essential icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+	<!-- Preload critical resources -->
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link rel="preconnect" href="https://ajax.googleapis.com">
+	<!-- Critical CSS inline -->
+	<style>
+		.preloader {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background: #121212;
+			z-index: 9999;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Preloader -->
+	<div class="preloader">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Particle background -->
+	<div id="particles-container"></div>
+
+	<div class="container">
+		<header>
+			<div class="logo">
+				<h1>Nichdant</h1>
+				<p>Hand-picked tools & recommendations</p>
+			</div>
+
+			<div class="search-container">
+				<div class="search-icon">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+				<input type="text" id="search-input" class="search-input" placeholder="Search for tools..."
+					aria-label="Search">
+			</div>
+		</header>
+
+		<main>
+			<!-- Mobile dropdown for categories -->
+			<div class="mobile-dropdown-wrapper">
+				<button id="mobile-category-dropdown" class="mobile-dropdown-button">
+					<span class="dropdown-label">Categories</span>
+					<span class="dropdown-icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</button>
+				<div id="mobile-dropdown-content" class="mobile-dropdown-content"></div>
+			</div>
+			<!--  -->
+			<!-- Category navigation -->
+			<div class="category-nav-wrapper">
+				<button class="nav-arrow nav-left">
+					<i class="fa-solid fa-chevron-left"></i>
+				</button>
+
+				<nav id="category-nav" class="category-nav"></nav>
+
+				<button class="nav-arrow nav-right">
+					<i class="fa-solid fa-chevron-right"></i>
+				</button>
+			</div>
+
+			<!-- Userscript tips will be dynamically generated -->
+			<div id="userscript-tips-container"></div>
+
+			<!-- Subcategory navigation -->
+			<nav id="subcategory-nav" class="subcategory-nav"></nav>
+
+			<!-- Content section -->
+			<div id="content-container" class="content-container"></div>
+		</main>
+
+		<footer>
+			<div class="copyright">&copy; 2025 Nicholas D.T.</div>
+			<div class="contact-info">
+				<a href="mailto:contact@nichdant.com" class="contact-link"><i class="fa-solid fa-envelope"></i> contact@nichdant.com</a>
+				<a href="https://wa.me/+6282139645746" class="contact-link"><i class="fa-brands fa-whatsapp"></i>+62 821-3964-5746</a>
+			</div>
+			<div class="footer-glow"></div>
+		</footer>
+	</div>
+
+	<!-- Floating Action Button -->
+	<div id="floating-action-btn" class="floating-action-btn">
+		<div class="fab-icon">
+			<i class="fa-solid fa-plus"></i>
+		</div>
+		<div class="fab-options">
+			<div class="fab-option" data-action="theme">
+				<i class="fa-solid fa-sun"></i>
+				<span>Toggle theme</span>
+			</div>
+			<div class="fab-option" data-action="random">
+				<i class="fa-solid fa-shuffle"></i>
+				<span>Random tip</span>
+			</div>
+			<div class="fab-option" data-action="performance">
+				<i class="fa-solid fa-gauge-high"></i>
+				<span>Low-perf mode</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Load jQuery with defer attribute -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+	<script src="script.js" defer></script>
+</body>
+
+</html>
