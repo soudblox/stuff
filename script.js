@@ -14,9 +14,15 @@ const siteData = {
 					items: [
 						{
 							title: "Spotify Premium",
-							description: "Spotify with Premium Unlocked ",
+							description: "Free Spotify Premium",
 							image: "https://primordialradio.com/wp-content/uploads/2024/04/Link_Image_Spotify.jpg",
 							link: "https://github.com/soudblox/nichdant-revanced/releases/download/1/spotify-revanced-v9.0.42.529-all.apk"
+						},
+						{
+							title: "YouTube Revanced",
+							description: "YouTube with free premium and more extra features",
+							image: "https://static.hub.91mobiles.com/wp-content/uploads/sites/9/2023/02/YouTube-Revanced-how-to-install.jpg",
+							link: "https://github.com/berkmirsatk/RVXA-BMK-REPO/releases/download/RVX-Anddea_v3.8.0-dev.2/RVX.Anddea.YT.apk"
 						}
 					]
 				}
@@ -672,7 +678,7 @@ const NichdantApp = {
                     <p class="card-text">${item.description}</p>
                     <div class="card-actions">
                         <a href="${item.link}" class="card-link">
-                            Check it out
+                            Download
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -838,7 +844,7 @@ const NichdantApp = {
                     <p class="card-text">${item.description}</p>
                     <div class="card-actions">
                         <a href="${item.link}" class="card-link">
-                            Check it out
+                            Download
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -1006,7 +1012,7 @@ const NichdantApp = {
                     <div class="card-image" style="background-image: url('${randomItem.item.image}')"></div>
                     <h3>${randomItem.item.title}</h3>
                     <p>${randomItem.item.description}</p>
-                    <a href="${randomItem.item.link}" class="card-link">Check it out</a>
+                    <a href="${randomItem.item.link}" class="card-link">Download</a>
                     </div>
                 </div>
             `;
