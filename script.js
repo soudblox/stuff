@@ -1,9 +1,7 @@
-// Sample data structure with Font Awesome icons
 const siteData = {
 	categories: [
 		{
 			name: "Android",
-			// Each icon has iconType (fa-brands, fa-solid, etc) and iconName properties
 			icon: {
 				iconType: "fa-brands",
 				iconName: "fa-android"
@@ -11,18 +9,21 @@ const siteData = {
 			subcategories: [
 				{
 					name: "Mods",
-					items: [
-						{
+					items: [						{
 							title: "Spotify Premium",
 							description: "Free Spotify Premium",
 							image: "https://primordialradio.com/wp-content/uploads/2024/04/Link_Image_Spotify.jpg",
-							link: "https://github.com/soudblox/nichdant-revanced/releases/download/1/spotify-revanced-v9.0.42.529-all.apk"
+							link: "https://github.com/soudblox/nichdant-revanced/releases/download/2/spotify-revanced-v9.0.44.478-all.apk",
+							source: "ReVanced Team",
+							sourceUrl: "https://github.com/ReVanced"
 						},
 						{
 							title: "YouTube Revanced",
 							description: "YouTube with free premium and more extra features",
 							image: "https://static.hub.91mobiles.com/wp-content/uploads/sites/9/2023/02/YouTube-Revanced-how-to-install.jpg",
-							link: "https://github.com/berkmirsatk/RVXA-BMK-REPO/releases/download/RVX-Anddea_v3.8.0-dev.2/RVX.Anddea.YT.apk"
+							link: "https://github.com/berkmirsatk/RVXA-BMK-REPO/releases/download/RVX-Anddea_v3.8.0-dev.2/RVX.Anddea.YT.apk",
+							source: "ReVanced Anddea Fork",
+							sourceUrl: "https://github.com/berkmirsatk/RVXA-BMK-REPO"
 						}
 					]
 				}
@@ -176,28 +177,20 @@ const siteData = {
 	]
 };
 
-// Main application namespace
-const NichdantApp = {
-	// Core functionality
+const App = {
 	init() {
-		// Check for deep link before initializing
 		const deepLinkParams = this.urlUtils.getUrlParams();
-		
-		// Load categories and setup the app
+
 		this.loadCategories();
 		this.effects.initParticles();
 		this.setupEventListeners();
 		
-		// Handle deep linking if parameters exist
 		if (deepLinkParams.card) {
 			this.urlUtils.handleDeepLink(deepLinkParams);
 		}
-		// The rest will happen after the initial content is loaded
 	},
-	
-	// URL utilities for handling deep links
+
 	urlUtils: {
-		// Parse URL parameters
 		getUrlParams() {
 			const params = {};
 			const queryString = window.location.search;
@@ -212,7 +205,6 @@ const NichdantApp = {
 			return params;
 		},
 		
-		// Create a shareable URL for a specific card
 		createShareableUrl(categoryIndex, subcategoryIndex, itemTitle) {
 			const url = new URL(window.location.href.split('?')[0]);
 			url.searchParams.append('category', categoryIndex);
@@ -220,40 +212,33 @@ const NichdantApp = {
 			url.searchParams.append('card', encodeURIComponent(itemTitle));
 			return url.toString();
 		},
-				// Handle deep linking to a specific card
+
 		handleDeepLink(params) {
 			const categoryIndex = params.category;
 			const subcategoryIndex = params.subcategory;
 			const cardTitle = params.card ? decodeURIComponent(params.card) : null;
 			
 			if (categoryIndex !== undefined && subcategoryIndex !== undefined) {
-				// First select the proper category and subcategory
-				NichdantApp.navigation.selectCategory(categoryIndex);
-				NichdantApp.navigation.selectSubcategory(categoryIndex, subcategoryIndex);
+				App.navigation.selectCategory(categoryIndex);
+				App.navigation.selectSubcategory(categoryIndex, subcategoryIndex);
 				
-				// If we have a card title, find and highlight it
 				if (cardTitle) {
 					setTimeout(() => {
 						const cardElement = document.querySelector(`.card[data-title="${cardTitle}"]`);
 						if (cardElement) {
-							// Highlight the card
 							cardElement.classList.add('highlighted-card');
-							
-							// Scroll to the card
 							cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });							// Remove highlight after animation
 							setTimeout(() => {
 								cardElement.classList.remove('highlighted-card');
 							}, 4700);
 						}
-					}, 500); // Wait for content to load
+					}, 500);
 				}
 			}
 		},
 		
-		// Copy a URL to clipboard and show feedback
 		copyToClipboard(text) {
 			navigator.clipboard.writeText(text).then(() => {
-				// Show feedback toast
 				showToast('Link copied to clipboard!');
 			}).catch(err => {
 				console.error('Failed to copy: ', err);
@@ -263,20 +248,17 @@ const NichdantApp = {
 	},
 	
 	setupEventListeners() {
-		// FAB button functionality
 		const fab = document.getElementById('floating-action-btn');
 		fab.addEventListener('click', function () {
 			this.classList.toggle('active');
 		});
 
-		// Handle FAB options
 		document.querySelectorAll('.fab-option').forEach(option => {
 			option.addEventListener('click', e => {
 				e.stopPropagation();
 				const action = option.dataset.action;
 
 				if (action === 'theme') {
-					// Fix theme toggle to properly switch between light and dark
 					document.body.classList.toggle('light-theme');
 					document.documentElement.classList.toggle('light-theme');
 				} else if (action === 'random') {
@@ -287,13 +269,11 @@ const NichdantApp = {
 			});
 		});
 
-		// Event listener for search input
+
 		const searchInput = document.getElementById('search-input');
 		searchInput.addEventListener('input', e => {
 			if (searchInput.value.trim() === '') {
-				// If search is cleared, reset to current category view
 				const activeCategory = document.querySelector('.category-button.active');
-				// Make sure the subcategory nav is visible when clearing search
 				const subcategoryNav = document.getElementById('subcategory-nav');
 				subcategoryNav.style.display = 'flex';
 
@@ -562,7 +542,7 @@ const NichdantApp = {
 			});
 
 			// Load content for selected subcategory
-			NichdantApp.content.loadContent(categoryIndex, subcategoryIndex, isInitialLoad);
+			App.content.loadContent(categoryIndex, subcategoryIndex, isInitialLoad);
 		}
 	},
 
@@ -631,10 +611,10 @@ const NichdantApp = {
                     <p>Userscripts are small JavaScript programs that modify websites. To use them, you need to install a userscript manager extension first:</p>
                     <ul>
                         <li>
-                            <a href="https://violentmonkey.github.io/" target="_blank"><i class="fa-solid fa-puzzle-piece"></i> Violentmonkey</a> <span class="recommendation-badge">Recommended</span>
+                            <a  onclick="window.open('https://violentmonkey.github.io/', '_blank')" class="source-link"><i class="fa-solid fa-puzzle-piece"></i> Violentmonkey</a> <span class="recommendation-badge">Recommended</span>
                         </li>
-                        <li><a href="https://www.tampermonkey.net/" target="_blank"><i class="fa-solid fa-puzzle-piece"></i> Tampermonkey</a></li>
-                        <li><a href="https://www.greasespot.net/" target="_blank"><i class="fa-solid fa-puzzle-piece"></i> Greasemonkey</a></li>
+                        <li><a  onclick="window.open('https://www.tampermonkey.net/', '_blank')" class="source-link"><i class="fa-solid fa-puzzle-piece"></i> Tampermonkey</a></li>
+                        <li><a  onclick="window.open('https://www.greasespot.net/', '_blank')" class="source-link"><i class="fa-solid fa-puzzle-piece"></i> Greasemonkey</a></li>
                     </ul>
                 </div>
             `;
@@ -649,35 +629,40 @@ const NichdantApp = {
                 <h3><i class="fa-solid fa-circle-info"></i> Using Userscripts</h3>
                 <p>Userscripts require a browser extension to run. Install one of these managers:</p>
                 <div class="script-managers">
-                    <a href="https://violentmonkey.github.io/" target="_blank" class="manager-button recommended">
+                    <a  onclick="window.open('https://violentmonkey.github.io/', '_blank')" class="manager-button recommended">
                         <i class="fa-solid fa-puzzle-piece"></i> Violentmonkey
                     </a>
-                    <a href="https://www.tampermonkey.net/" target="_blank" class="manager-button">
+                    <a  onclick="window.open('https://www.tampermonkey.net/', '_blank')" class="manager-button">
                         <i class="fa-solid fa-puzzle-piece"></i> Tampermonkey
                     </a>
-                    <a href="https://www.greasespot.net/" target="_blank" class="manager-button">
+                    <a  onclick="window.open('https://www.greasespot.net/', '_blank')" class="manager-button">
                         <i class="fa-solid fa-puzzle-piece"></i> Greasemonkey
                     </a>
                 </div>
             `;
 			return mobileTip;
 		},
-
 		createCard(item, categoryIndex, subcategoryIndex) {
 			const card = document.createElement('div');
 			card.className = 'card';
 			card.dataset.title = item.title; // Add title as data attribute for easy identification
-			
-			// Generate a shareable URL for this card
-			const shareUrl = NichdantApp.urlUtils.createShareableUrl(categoryIndex, subcategoryIndex, item.title);
-
+					// Generate a shareable URL for this card
+			const shareUrl = App.urlUtils.createShareableUrl(categoryIndex, subcategoryIndex, item.title);			// Prepare the source info HTML if available
+			const sourceHtml = item.source ? `
+                <div class="card-source">
+                    <i class="fa-solid fa-code-branch"></i> Source: ${item.sourceUrl ? 
+                    `<a onclick="window.open('${item.sourceUrl}', '_blank')" class="source-link">${item.source}</a>` : 
+                    item.source}
+                </div>
+            ` : '';
+            
 			card.innerHTML = `
                 <div class="card-image" style="background-image: url('${item.image}')"></div>
                 <div class="card-body">
                     <h3 class="card-title">${item.title}</h3>
                     <p class="card-text">${item.description}</p>
-                    <div class="card-actions">
-                        <a href="${item.link}" class="card-link">
+                    ${sourceHtml}                    <div class="card-actions">
+                        <a  onclick="window.open('${item.link}', '_blank')" class="card-link">
                             Download
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -695,7 +680,7 @@ const NichdantApp = {
             const shareBtn = card.querySelector('.share-btn');
             shareBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                NichdantApp.urlUtils.copyToClipboard(shareUrl);
+                App.urlUtils.copyToClipboard(shareUrl);
             });
 
 			return card;
@@ -743,7 +728,7 @@ const NichdantApp = {
 				subcategoryNav.style.display = 'flex';
 
 				if (activeCategory && activeSubcategory) {
-					NichdantApp.navigation.selectSubcategory(
+					App.navigation.selectSubcategory(
 						activeCategory.dataset.index,
 						activeSubcategory.dataset.subcategoryIndex
 					);
@@ -758,7 +743,7 @@ const NichdantApp = {
 			contentContainer.innerHTML = '';
 
 			// Show ghost cards while "searching"
-			NichdantApp.content.showGhostCards();
+			App.content.showGhostCards();
 
 			setTimeout(() => {
 				contentContainer.innerHTML = '';
@@ -832,9 +817,16 @@ const NichdantApp = {
 			
 			// Generate a shareable URL for this card if indices were found
 			const shareUrl = (categoryIndex !== -1 && subcategoryIndex !== -1) 
-				? NichdantApp.urlUtils.createShareableUrl(categoryIndex, subcategoryIndex, item.title)
-				: null;
-
+				? App.urlUtils.createShareableUrl(categoryIndex, subcategoryIndex, item.title)
+				: null;			// Prepare the source info HTML if available
+			const sourceHtml = item.source ? `
+                <div class="card-source">
+                    <i class="fa-solid fa-code-branch"></i> Source: ${item.sourceUrl ? 
+                    `<a  onclick="window.open('${item.sourceUrl}', '_blank')" class="source-link">${item.source}</a>` : 
+                    item.source}
+                </div>
+            ` : '';
+            
 			card.innerHTML = `
                 <div class="card-image" style="background-image: url('${item.image}')"></div>
                 <div class="card-body">
@@ -842,8 +834,8 @@ const NichdantApp = {
                         <i class="${category.icon.iconType} ${category.icon.iconName}"></i> ${item.title}
                     </h3>
                     <p class="card-text">${item.description}</p>
-                    <div class="card-actions">
-                        <a href="${item.link}" class="card-link">
+                    ${sourceHtml}                    <div class="card-actions">
+                        <a  onclick="window.open('${item.link}', '_blank')" class="card-link">
                             Download
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -864,7 +856,7 @@ const NichdantApp = {
 			if (shareBtn && shareUrl) {
 				shareBtn.addEventListener('click', (e) => {
 					e.preventDefault();
-					NichdantApp.urlUtils.copyToClipboard(shareUrl);
+					App.urlUtils.copyToClipboard(shareUrl);
 				});
 			}
 
@@ -998,10 +990,17 @@ const NichdantApp = {
 				this.createTipModal(randomItem);
 			}
 		},
-
 		createTipModal(randomItem) {
 			const modal = document.createElement('div');
-			modal.className = 'random-tip-modal';
+			modal.className = 'random-tip-modal';					// Prepare the source info HTML if available
+			const sourceHtml = randomItem.item.source ? `
+                <div class="card-source modal-source">
+                    <i class="fa-solid fa-code-branch"></i> Source: ${randomItem.item.sourceUrl ? 
+                    `<a  onclick="window.open('${randomItem.item.sourceUrl}', '_blank')" class="source-link">${randomItem.item.source}</a>` : 
+                    randomItem.item.source}
+                </div>
+            ` : '';
+            
 			modal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1010,9 +1009,9 @@ const NichdantApp = {
                     </div>
                     <div class="modal-body">
                     <div class="card-image" style="background-image: url('${randomItem.item.image}')"></div>
-                    <h3>${randomItem.item.title}</h3>
-                    <p>${randomItem.item.description}</p>
-                    <a href="${randomItem.item.link}" class="card-link">Download</a>
+                    <h3>${randomItem.item.title}</h3>                    <p>${randomItem.item.description}</p>
+                    ${sourceHtml}
+                    <a onclick="window.open('${randomItem.item.link}', '_blank')" class="card-link">Download</a>
                     </div>
                 </div>
             `;
@@ -1128,5 +1127,4 @@ function showToast(message) {
 	}, 10);
 }
 
-// Initialize application on DOM content loaded
-document.addEventListener('DOMContentLoaded', () => NichdantApp.init());
+document.addEventListener('DOMContentLoaded', () => App.init());
