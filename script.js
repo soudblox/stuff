@@ -13,7 +13,7 @@ const siteData = {
 							title: "Spotify Premium",
 							description: "Free Spotify Premium",
 							image: "https://primordialradio.com/wp-content/uploads/2024/04/Link_Image_Spotify.jpg",
-							link: "https://github.com/soudblox/nichdant-revanced/releases/download/2/spotify-revanced-v9.0.44.478-all.apk",
+							link: "https://github.com/soudblox/nichdant-revanced/releases/download/6/spotify-revanced_v9.0.46.496-patches_v5.24.0.2.apk",
 							source: "ReVanced Team",
 							sourceUrl: "https://github.com/ReVanced"
 						},
