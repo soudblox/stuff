@@ -805,13 +805,18 @@ body.light-theme .card-source .source-link {
 	opacity: calc(var(--intensity) * 1);
 	background: linear-gradient(var(--rotate, 0deg),
 			rgba(255, 255, 255, 0) 0%,
-			rgba(255, 255, 255, 0.6) 50%,
+			rgba(255, 255, 255, 0.4) 50%,
 			rgba(255, 255, 255, 0) 100%);
 }
 
 .card.highlight-proximity::after {
-	opacity: calc(var(--intensity) * 0.9);
+	opacity: calc(var(--intensity) * 0.7);
 	filter: blur(8px);
+	
+	/* Firefox-specific adjustment */
+	@-moz-document url-prefix() {
+		opacity: calc(var(--intensity) * 0.4); /* Even lower opacity for Firefox */
+	}
 }
 
 .category-button.highlight-proximity,
@@ -1052,14 +1057,20 @@ body.light-theme .ghost-text:after {
 	opacity: calc(var(--intensity) * 1);
 	background: linear-gradient(var(--rotate, 0deg),
 			rgba(255, 255, 255, 0) 0%,
-			rgba(255, 255, 255, 0.6) 50%,
+			rgba(255, 255, 255, 0.4) 50%,
 			rgba(255, 255, 255, 0) 100%);
 }
 
 .card.highlight-proximity::after {
-	opacity: calc(var(--intensity) * 0.9);
+	opacity: calc(var(--intensity) * 0.7);
 	filter: blur(8px);
+	
+	/* Firefox-specific adjustment */
+	@-moz-document url-prefix() {
+		opacity: calc(var(--intensity) * 0.4); /* Even lower opacity for Firefox */
+	}
 }
+
 
 .category-button.highlight-proximity,
 .subcategory-button.highlight-proximity {

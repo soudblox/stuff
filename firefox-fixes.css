@@ -1,0 +1,16 @@
+/* Firefox-specific adjustments */
+@-moz-document url-prefix() {
+    /* Fix for card highlight proximity being too bright in Firefox */
+    .card.highlight-proximity::before {
+        opacity: calc(var(--intensity) * 0.6) !important;
+        background: linear-gradient(var(--rotate, 0deg),
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%) !important;
+    }
+
+    .card.highlight-proximity::after {
+        opacity: calc(var(--intensity) * 0.4) !important;
+        filter: blur(12px) !important;
+    }
+}
