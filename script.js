@@ -41,15 +41,34 @@ const siteData = {
 					items: [
 						{
 							title: "PowerToys",
-							description: "Set of utilities for power users to tune Windows for greater productivity.",
+							description: "Lots of cool features to make windows cooler.",
 							image: "https://winpoin.com/wp-content/uploads/2020/03/Microsoft-PowerToys-0.15-Dirilis-Dengan-Fokus-Pada-Peningkatan-Kualitas.jpg",
-							link: "https://github.com/microsoft/PowerToys/releases/download/v0.92.0/PowerToysSetup-0.92.0-x64.exe"
+							link: "https://github.com/microsoft/PowerToys/releases/download/v0.92.0/PowerToysSetup-0.92.0-x64.exe",
+							source: "Microsoft Github",
+							sourceUrl: "https://github.com/microsoft/PowerToys"
 						},
 						{
 							title: "ShareX",
-							description: "Free and open source screen capture and file sharing tool.",
+							description: "Cool and easy screenshot and screenrecord app.",
 							image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/400040/header.jpg?t=1736919331",
-							link: "https://github.com/ShareX/ShareX/releases/download/v17.1.0/ShareX-17.1.0-setup.exe"
+							link: "https://github.com/ShareX/ShareX/releases/download/v17.1.0/ShareX-17.1.0-setup.exe",
+							source: "ShareX Official Website",
+							sourceUrl: "https://getsharex.com/"
+						},
+						{
+							title: "Blip",
+							description: "AirDrop but for all platforms and cooler.",
+							image: "https://i0.wp.com/www.hdwarrior.co.uk/wp-content/uploads/2023/11/Blip-logo-for-HDW.jpg",
+							link: "https://blip.net/download/windows",
+							source: "Blip Official Website",
+							sourceUrl: "https://blip.net/"
+						},
+						{
+							title: "File Converter",
+							descriptin: "Easy app to convert files by just right clicking them.",
+							link: "https://file-converter.io/download.html",
+							source: "File Converter Official Website",
+							sourceUrl: "https://file-converter.io/"
 						}
 					]
 				},
@@ -57,17 +76,12 @@ const siteData = {
 					name: "Mods",
 					items: [
 						{
-							title: "StartAllBack",
-							description: "Brings back the classic Start Menu to Windows 11.",
+							title: "blm jadi",
+							description: "males",
 							image: "/api/placeholder/400/320",
-							link: "#startallback"
+							link: "",
+							source: "😴"
 						},
-						{
-							title: "TranslucentTB",
-							description: "Utility that makes the Windows taskbar translucent/transparent.",
-							image: "/api/placeholder/400/320",
-							link: "#translucenttb"
-						}
 					]
 				}
 			]
@@ -83,23 +97,12 @@ const siteData = {
 					name: "All",
 					items: [
 						{
-							title: "Ninite",
-							description: "Install and update multiple apps at once without toolbars.",
+							title: "blm jadi",
+							description: "males",
 							image: "/api/placeholder/400/320",
-							link: "#ninite"
+							link: "",
+							source: "😴"
 						},
-						{
-							title: "Photopea",
-							description: "Free online photo editor similar to Photoshop.",
-							image: "/api/placeholder/400/320",
-							link: "#photopea"
-						},
-						{
-							title: "PrivacyTools",
-							description: "Services, tools and knowledge to protect your privacy against surveillance.",
-							image: "/api/placeholder/400/320",
-							link: "#privacytools"
-						}
 					]
 				}
 			]
@@ -114,23 +117,28 @@ const siteData = {
 				{
 					name: "All",
 					items: [
+						// {
+						// 	title: "uBlock Origin",
+						// 	description: "Efficient blocker for browsers. Fast and lean.",
+						// 	image: "/api/placeholder/400/320",
+						// 	link: "#ublock"
+						// },
+						// {
+						// 	title: "Dark Reader",
+						// 	description: "Dark mode for every website. Care for your eyes, use dark theme for night and daily browsing.",
+						// 	image: "/api/placeholder/400/320",
+						// 	link: "#darkreader"
+						// },
+						// {
+						// 	title: "Bitwarden",
+						// 	description: "Free and open source password manager with built-in sync across all your devices.",
+						// 	image: "/api/placeholder/400/320",
+						// 	link: "#bitwarden"
+						// }
 						{
-							title: "uBlock Origin",
-							description: "Efficient blocker for browsers. Fast and lean.",
-							image: "/api/placeholder/400/320",
-							link: "#ublock"
-						},
-						{
-							title: "Dark Reader",
-							description: "Dark mode for every website. Care for your eyes, use dark theme for night and daily browsing.",
-							image: "/api/placeholder/400/320",
-							link: "#darkreader"
-						},
-						{
-							title: "Bitwarden",
-							description: "Free and open source password manager with built-in sync across all your devices.",
-							image: "/api/placeholder/400/320",
-							link: "#bitwarden"
+							title: "blm jadi",
+							description: "males",
+							source: "😴"
 						}
 					]
 				}
@@ -147,22 +155,9 @@ const siteData = {
 					name: "All",
 					items: [
 						{
-							title: "YouTube Auto HD",
-							description: "Automatically sets YouTube quality to highest available.",
-							image: "/api/placeholder/400/320",
-							link: "#youtubehd"
-						},
-						{
-							title: "Reddit Enhancement Suite",
-							description: "Suite of modules that enhance your Reddit browsing experience.",
-							image: "/api/placeholder/400/320",
-							link: "#res"
-						},
-						{
-							title: "Anti-Adblock Killer",
-							description: "Helps you keep your Ad-Blocker active when you visit a website with an Anti-Adblock script.",
-							image: "/api/placeholder/400/320",
-							link: "#antiadblock"
+							title: "blm jadi",
+							description: "males",
+							source: "😴"
 						}
 					]
 				}
