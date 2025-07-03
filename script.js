@@ -42,20 +42,14 @@ const siteData = {
 						{
 							title: "PowerToys",
 							description: "Set of utilities for power users to tune Windows for greater productivity.",
-							image: "/api/placeholder/400/320",
-							link: "#powertoys"
+							image: "https://winpoin.com/wp-content/uploads/2020/03/Microsoft-PowerToys-0.15-Dirilis-Dengan-Fokus-Pada-Peningkatan-Kualitas.jpg",
+							link: "https://github.com/microsoft/PowerToys/releases/download/v0.92.0/PowerToysSetup-0.92.0-x64.exe"
 						},
 						{
 							title: "ShareX",
 							description: "Free and open source screen capture and file sharing tool.",
-							image: "/api/placeholder/400/320",
-							link: "#sharex"
-						},
-						{
-							title: "Everything",
-							description: "Locate files and folders by name instantly.",
-							image: "/api/placeholder/400/320",
-							link: "#everything"
+							image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/400040/header.jpg?t=1736919331",
+							link: "https://github.com/ShareX/ShareX/releases/download/v17.1.0/ShareX-17.1.0-setup.exe"
 						}
 					]
 				},
