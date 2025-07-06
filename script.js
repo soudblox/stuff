@@ -11,7 +11,7 @@ const siteData = {
 					name: "Mods",
 					items: [						{
 							title: "Spotify Premium",
-							description: "Free Spotify Premium",
+							description: "Free Spotify Premium (kinda broken rn)",
 							image: "https://primordialradio.com/wp-content/uploads/2024/04/Link_Image_Spotify.jpg",
 							link: "https://github.com/soudblox/nichdant-revanced/releases/download/7/spotify-revanced_v9.0.58.596-patches_v5.30.0.1.apk",
 							source: "ReVanced Team",
